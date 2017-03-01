@@ -40,7 +40,8 @@ RUN set -x \
     mkdir -p "$path" || true; \
     chown -R elasticsearch:root "$path"; \
     chmod 770 "$path"; \
-  done
+  done \
+  && /usr/share/elasticsearch/bin/elasticsearch-plugin install io.fabric8:elasticsearch-cloud-kubernetes:$ELASTICSEARCH_VERSION
 
 ENV PATH /usr/share/elasticsearch/bin:$PATH
 
